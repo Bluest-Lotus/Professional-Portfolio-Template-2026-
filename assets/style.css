@@ -1,0 +1,43 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fafafa;
+  color: #222;
+  line-height: 1.6;
+}
+
+header, footer {
+  padding: 2rem;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+.tag {
+  display: inline-block;
+  background: #e0e0e0;
+  padding: 0.2rem 0.6rem;
+  margin: 0.2rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}

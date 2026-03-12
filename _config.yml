@@ -1,0 +1,24 @@
+title: "Your Name"
+description: "Minimalist Portfolio & Blog"
+theme: null
+markdown: kramdown
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  blog:
+    output: true
+    permalink: /blog/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "blog"
+    values:
+      layout: "post"

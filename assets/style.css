@@ -1,9 +1,24 @@
+:root {
+  --bg: #fafafa;
+  --text: #222;
+  --accent: #000;
+  --card: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --text: #eee;
+    --accent: #fff;
+    --card: #1a1a1a;
+  }
+}
+
 body {
   font-family: system-ui, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #fafafa;
-  color: #222;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
 }
 
@@ -15,27 +30,41 @@ header, footer {
 nav a {
   margin: 0 1rem;
   text-decoration: none;
-  color: #444;
+  color: var(--text);
   font-weight: 500;
 }
 
 nav a:hover {
-  color: #000;
+  color: var(--accent);
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 2rem;
 }
 
-h1, h2, h3 {
-  font-weight: 600;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
 }
 
 .tag {
   display: inline-block;
-  background: #e0e0e0;
+  background: #ccc;
   padding: 0.2rem 0.6rem;
   margin: 0.2rem;
   border-radius: 4px;

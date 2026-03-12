@@ -7,7 +7,7 @@ layout: default
 
 <p><strong>Tags:</strong>
 {% for tag in page.tags %}
-  <span class="tag">{{ tag }}</span>
+  <a href="/tags/#{{ tag }}"><span class="tag">{{ tag }}</span></a>
 {% endfor %}
 </p>
 

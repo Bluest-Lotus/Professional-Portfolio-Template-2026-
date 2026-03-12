@@ -7,12 +7,11 @@ layout: default
 
 {% assign all_tags = "" | split: "" %}
 
-{% for post in site.projects %}
-  {% assign all_tags = all_tags | concat: post.tags %}
+{% for item in site.projects %}
+  {% assign all_tags = all_tags | concat: item.tags %}
 {% endfor %}
-
-{% for post in site.blog %}
-  {% assign all_tags = all_tags | concat: post.tags %}
+{% for item in site.blog %}
+  {% assign all_tags = all_tags | concat: item.tags %}
 {% endfor %}
 
 {% assign unique_tags = all_tags | uniq | sort %}
@@ -27,7 +26,7 @@ layout: default
   {% endif %}
 {% endfor %}
 
-### Blog Posts
+### Blog posts
 {% for item in site.blog %}
   {% if item.tags contains tag %}
   - [{{ item.title }}]({{ item.url }})

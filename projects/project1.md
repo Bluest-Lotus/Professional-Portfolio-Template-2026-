@@ -1,7 +1,8 @@
 ---
 title: "Robotics Control System"
-tags: [robotics, embedded, pico]
+tags: [robotics, embedded, systems]
 thumbnail: "/assets/project1.jpg"
+summary: "A modular robotics control stack with a custom embedded OS and hardware abstraction layer."
 ---
 
-A modular robotics control system built using microcontrollers and a custom OS layer.
+Short description of the project, architecture, and outcomes.

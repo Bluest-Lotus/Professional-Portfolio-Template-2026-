@@ -1,7 +1,7 @@
 ---
-title: "Why Modular Design Wins"
+title: "Why Modularity Feels Calm"
 date: 2026-03-11
-tags: [design, engineering, philosophy]
+tags: [design, systems, philosophy]
 ---
 
-Modularity isn’t just a design choice—it’s a mindset that scales across hardware, software, and business.
+Some thoughts on why modular systems reduce cognitive load and make engineering work feel more sustainable.

@@ -26,6 +26,11 @@ A minimalist portfolio showcasing my engineering work, writing, and long-term pr
 
 ## Latest Blog Posts
 
+<div class="grid">
 {% for post in site.blog limit:3 %}
-- [{{ post.title }}]({{ post.url }})
+<div class="card">
+  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+  <p>{{ post.date | date: "%B %d, %Y" }}</p>
+</div>
 {% endfor %}
+</div>

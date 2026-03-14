@@ -4,10 +4,9 @@ body {
   padding: 0;
   background: #fafafa;
   color: #222;
-  line-height: 1.6;
 }
 
-header, footer {
+header {
   padding: 20px;
   text-align: center;
 }
@@ -25,7 +24,7 @@ nav a {
   padding: 40px 20px;
 }
 
-h1, h2, h3 {
+h1, h2 {
   font-weight: 600;
 }
 
@@ -36,4 +35,5 @@ h1, h2, h3 {
   margin-right: 6px;
   border-radius: 4px;
   font-size: 0.8rem;
+  cursor: pointer;
 }

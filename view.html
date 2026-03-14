@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog — Your Name</title>
+  <title>Loading…</title>
 
   <link rel="stylesheet" href="/Professional-Portfolio-Template-2026-/assets/style.css">
   <script src="/Professional-Portfolio-Template-2026-/assets/markdown.js"></script>
@@ -22,18 +22,7 @@
 </header>
 
 <div class="container">
-  <h1>Blog</h1>
-
-  <div class="post-card item" data-tags="engineering,productivity">
-    <h3>
-      <a href="/Professional-Portfolio-Template-2026-/view.html?path=/Professional-Portfolio-Template-2026-/content/blog/sample-post.md">
-        Sample Post
-      </a>
-    </h3>
-    <p><small>Jan 01, 2025</small></p>
-    <p>A short preview of the post goes here.</p>
-  </div>
-
+  <main id="content">Loading…</main>
 </div>
 
 <footer>
@@ -41,6 +30,21 @@
   <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> •
   <a href="/Professional-Portfolio-Template-2026-/assets/resume.pdf" target="_blank">Resume</a>
 </footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const path = params.get("path");
+
+  if (path) {
+    fetch(path)
+      .then(res => res.text())
+      .then(md => {
+        document.getElementById("content").innerHTML = marked.parse(md);
+      });
+  } else {
+    document.getElementById("content").innerHTML = "<p>No file specified.</p>";
+  }
+</script>
 
 </body>
 </html>

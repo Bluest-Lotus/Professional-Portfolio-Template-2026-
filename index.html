@@ -2,19 +2,21 @@
 <html>
 <head>
   <title>Your Name — Portfolio</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/markdown.js"></script>
+  <script src="/assets/script.js" defer></script>
 </head>
 <body>
 
+<span class="toggle" onclick="toggleDark()">🌓</span>
+
 <header>
   <h2>Your Name</h2>
-  <span class="toggle" onclick="toggleDark()">🌓</span>
   <nav>
     <a href="/">Home</a>
     <a href="/projects">Projects</a>
     <a href="/blog">Blog</a>
-    <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-    <a href="/assets/resume.pdf" target="_blank">Resume</a>
+    <a href="/about">About</a>
   </nav>
 </header>
 
@@ -24,20 +26,26 @@
   <p>I build clean, modern engineering and software projects.</p>
 
   <h2>Featured Projects</h2>
-  <ul>
-    <li><a href="/projects/sample-project">Sample Project</a> — A clean example project.</li>
-  </ul>
+  <div class="grid">
+    <div class="card item" data-tags="web,design">
+      <h3><a href="/content/projects/sample-project.md">Sample Project</a></h3>
+      <p>A clean example project.</p>
+    </div>
+  </div>
 
   <h2>Latest Blog Posts</h2>
-  <ul>
-    <li><a href="/blog/sample-post">Sample Post</a> — Jan 01, 2025</li>
-  </ul>
+  <div class="post-card item" data-tags="engineering,productivity">
+    <h3><a href="/content/blog/sample-post.md">Sample Post</a></h3>
+    <p><small>Jan 01, 2025</small></p>
+    <p>A short preview of the post goes here.</p>
+  </div>
 </div>
 
-</body>
-<footer style="text-align:center; padding:40px; opacity:0.7;">
+<footer>
   © 2025 Your Name • 
   <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> •
   <a href="/assets/resume.pdf" target="_blank">Resume</a>
 </footer>
+
+</body>
 </html>

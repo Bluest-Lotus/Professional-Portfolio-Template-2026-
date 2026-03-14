@@ -1,9 +1,22 @@
+:root {
+  --bg: #fafafa;
+  --text: #222;
+  --card-bg: #fff;
+  --accent: #0077ff;
+}
+
+body.dark {
+  --bg: #111;
+  --text: #eee;
+  --card-bg: #1a1a1a;
+}
+
 body {
-  font-family: system-ui, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #fafafa;
-  color: #222;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
 }
 
 header {
@@ -14,18 +27,35 @@ header {
 nav a {
   margin: 0 12px;
   text-decoration: none;
-  color: #222;
+  color: var(--text);
   font-weight: 500;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 40px 20px;
 }
 
-h1, h2 {
-  font-weight: 600;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.post-card {
+  background: var(--card-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .tag {
@@ -37,20 +67,11 @@ h1, h2 {
   font-size: 0.8rem;
   cursor: pointer;
 }
-:root {
-  --bg: #fafafa;
-  --text: #222;
-}
 
-body.dark {
-  --bg: #111;
-  --text: #eee;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  transition: background 0.3s, color 0.3s;
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.7;
 }
 
 .toggle {

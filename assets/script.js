@@ -4,3 +4,6 @@ function filterByTag(tag) {
     item.style.display = tags.includes(tag) ? "block" : "none";
   });
 }
+function toggleDark() {
+  document.body.classList.toggle("dark");
+}

@@ -37,3 +37,25 @@ h1, h2 {
   font-size: 0.8rem;
   cursor: pointer;
 }
+:root {
+  --bg: #fafafa;
+  --text: #222;
+}
+
+body.dark {
+  --bg: #111;
+  --text: #eee;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+.toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}

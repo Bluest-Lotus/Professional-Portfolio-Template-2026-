@@ -1,5 +1,8 @@
 title: "Your Name"
-description: "Minimalist Engineering Portfolio & Blog"
+description: "Minimalist Portfolio & Blog"
+baseurl: ""
+url: "https://your-username.github.io"
+
 theme: null
 markdown: kramdown
 
@@ -7,18 +10,11 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
-  blog:
-    output: true
-    permalink: /blog/:name/
 
-defaults:
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
-  - scope:
-      path: ""
-      type: "blog"
-    values:
-      layout: "post"
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+social_links:
+  linkedin: "https://www.linkedin.com/in/yourprofile/"
+  resume: "/assets/resume.pdf"

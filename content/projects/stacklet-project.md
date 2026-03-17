@@ -1,7 +1,7 @@
 ---
 title: Stacklet Robot
 description: A modular, Cozmo‑style robot built with a custom embedded OS.
-tags: robotics, embedded, design
+tags: robotics, embedded, design, web
 date: 2025-02-10
 ---
 

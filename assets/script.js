@@ -27,18 +27,13 @@ async function loadIndex(folder, containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) return;
 
-  // Fetch the folder listing from GitHub Pages
-  const res = await fetch(`/Professional-Portfolio-Template-2026-/content/${folder}/`);
-  const text = await res.text();
+  const list = await fetch(`/Professional-Portfolio-Template-2026-/content/${folder}/projects.json`)
+    .then(r => r.json());
 
-  // Extract .md filenames from directory listing
-  const files = [...text.matchAll(/href="([^"]+\.md)"/g)].map(m => m[1]);
-
-  for (const file of files) {
+  for (const file of list) {
     const mdPath = `/Professional-Portfolio-Template-2026-/content/${folder}/${file}`;
     const md = await fetch(mdPath).then(r => r.text());
 
-    // Extract frontmatter
     const meta = {};
     const fm = md.match(/---([\s\S]*?)---/);
     if (fm) {
@@ -48,7 +43,6 @@ async function loadIndex(folder, containerSelector) {
       });
     }
 
-    // Build card
     const card = document.createElement("div");
     card.className = "card item";
     card.dataset.tags = meta.tags || "";

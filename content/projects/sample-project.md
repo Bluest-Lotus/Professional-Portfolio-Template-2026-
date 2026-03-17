@@ -1,5 +1,6 @@
-# Sample Project
-
-**Tags:** web, design
-
-This is a sample project page written in Markdown.
+---
+title: Sample Project
+description: A clean example project.
+tags: web, design
+date: 2025-01-01
+---

@@ -23,3 +23,47 @@ function filterByTag(tag) {
     item.style.display = tags.includes(tag) ? "block" : "none";
   });
 }
+async function loadIndex(folder, containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+
+  // Fetch the folder listing from GitHub Pages
+  const res = await fetch(`/Professional-Portfolio-Template-2026-/content/${folder}/`);
+  const text = await res.text();
+
+  // Extract .md filenames from directory listing
+  const files = [...text.matchAll(/href="([^"]+\.md)"/g)].map(m => m[1]);
+
+  for (const file of files) {
+    const mdPath = `/Professional-Portfolio-Template-2026-/content/${folder}/${file}`;
+    const md = await fetch(mdPath).then(r => r.text());
+
+    // Extract frontmatter
+    const meta = {};
+    const fm = md.match(/---([\s\S]*?)---/);
+    if (fm) {
+      fm[1].trim().split("\n").forEach(line => {
+        const [key, ...rest] = line.split(":");
+        meta[key.trim()] = rest.join(":").trim();
+      });
+    }
+
+    // Build card
+    const card = document.createElement("div");
+    card.className = "card item";
+    card.dataset.tags = meta.tags || "";
+
+    card.innerHTML = `
+      <h3><a href="/Professional-Portfolio-Template-2026-/view.html?path=${mdPath}">${meta.title}</a></h3>
+      <p>${meta.description || ""}</p>
+    `;
+
+    container.appendChild(card);
+  }
+}
+function filterByTag(tag) {
+  document.querySelectorAll(".item").forEach(item => {
+    const tags = item.dataset.tags.split(",").map(t => t.trim());
+    item.style.display = tags.includes(tag) ? "block" : "none";
+  });
+}

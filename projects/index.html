@@ -4,7 +4,7 @@
   <title>Projects — Your Name</title>
 
   <link rel="stylesheet" href="/Professional-Portfolio-Template-2026-/assets/style.css">
-  <script src="/Professional-Portfolio-Template-2026-/assets/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="/Professional-Portfolio-Template-2026-/assets/script.js" defer></script>
 </head>
 <body>
@@ -25,21 +25,9 @@
   <h1>Projects</h1>
 
   <h3>Browse by tag:</h3>
-  <div style="margin-bottom: 20px;">
-    <span class="tag" onclick="filterByTag('web')">web</span>
-    <span class="tag" onclick="filterByTag('design')">design</span>
-  </div>
+  <div id="tag-bar" style="margin-bottom: 20px;"></div>
 
-  <div class="grid">
-    <div class="card item" data-tags="web,design">
-      <h3>
-        <a href="/Professional-Portfolio-Template-2026-/view.html?path=/Professional-Portfolio-Template-2026-/content/projects/sample-project.md">
-          Sample Project
-        </a>
-      </h3>
-      <p>A clean example project.</p>
-    </div>
-  </div>
+  <div class="grid" id="projects-grid"></div>
 </div>
 
 <footer>
@@ -48,8 +36,26 @@
   <a href="/Professional-Portfolio-Template-2026-/assets/resume.pdf" target="_blank">Resume</a>
 </footer>
 
-</body>
 <script>
-  loadIndex("projects", ".grid");
+  document.addEventListener("DOMContentLoaded", async () => {
+    await loadIndex("projects", "#projects-grid");
+
+    // Build tag bar dynamically
+    const tags = new Set();
+    document.querySelectorAll(".item").forEach(item => {
+      item.dataset.tags.split(",").forEach(t => tags.add(t.trim()));
+    });
+
+    const bar = document.getElementById("tag-bar");
+    tags.forEach(tag => {
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.textContent = tag;
+      span.onclick = () => filterByTag(tag);
+      bar.appendChild(span);
+    });
+  });
 </script>
+
+</body>
 </html>
